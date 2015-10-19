@@ -26,6 +26,7 @@ describe('flickUserSearchController', function(){
 ];
 
 it('displays search results', function() {
+  ctrl.doSearch();
   expect(ctrl.searchResult.items).toEqual(items)
 })
 
