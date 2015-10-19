@@ -1,0 +1,3 @@
+flickrUserSearch.controller('flickrUserSearchController', [function(){
+
+}]);
