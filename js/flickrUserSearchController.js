@@ -17,4 +17,8 @@ flickrUserSearch.controller('flickrUserSearchController', [function(){
     ]
   };
 
+  self.doSearch = function() {
+    console.log("It Works!")
+  }
+
 }]);

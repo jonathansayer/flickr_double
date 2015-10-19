@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="FlickrUserSearch">
+<html lang="en" ng-app="flickrUserSearch">
 <head>
   <meta charset="utf-8">
   <title>Flickr Double</title>
@@ -7,10 +7,12 @@
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="js/app/js"></script>
-  <script src="js/FlickrUserSearchController"></script>
+  <script src="js/app.js"></script>
+  <script src="js/flickrUserSearchController.js"></script>
 </head>
 
   <body ng-controller="flickrUserSearchController as searchCtrl">
+    <button ng-click=searchCtrl.doSearch()>Search</button>
 
   </body>
+</html>
