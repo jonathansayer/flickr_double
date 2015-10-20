@@ -2,15 +2,7 @@ describe('flickUserSearchController', function(){
   beforeEach(module('flickrUserSearch'));
 
   var ctrl
-
-  beforeEach(inject(function($controller) {
-    ctrl = $controller('flickrUserSearchController');
-    }));
-
-  it('initilises with an empty search result and term', function() {
-    expect(ctrl.searchResult).toBeUndefined();
-    expect(ctrl.searchTerm).toBeUndefined();
-  });
+  var httpBackend;
 
   var items = [
   {
@@ -25,8 +17,29 @@ describe('flickUserSearchController', function(){
   }
 ];
 
-it('displays search results', function() {
+  beforeEach(inject(function($httpBackend)
+  {
+    httpBackend = $httpBackend
+    httpBackend
+      .when("GET", "https://api.flickr.com/services/rest?method=flickr.test.echo&name=hello")
+      .respond(
+        { items:items }
+      )
+  }));
+
+  beforeEach(inject(function($controller) {
+    ctrl = $controller('flickrUserSearchController');
+    }));
+
+  it('initilises with an empty search result and term', function() {
+    expect(ctrl.searchResult).toBeUndefined();
+    expect(ctrl.searchTerm).toBeUndefined();
+  });
+
+it('displays search results', function(){
+  ctrl.searchTerm = 'hello'
   ctrl.doSearch();
+  httpBackend.flush();
   expect(ctrl.searchResult.items).toEqual(items)
 })
 

@@ -12,8 +12,9 @@
 </head>
 
   <body ng-controller="flickrUserSearchController as searchCtrl">
-    <button ng-click=searchCtrl.doSearch()>Search</button>
 
+    <input type="text" ng-model="searchCtrl.searchTerm">
+    <button ng-click=searchCtrl.doSearch()>Search</button>
     <div ng-repeat="item in searchCtrl.searchResult.items">
      Login: {{item.login}} </br>
      Avatar Url: {{item.avatar_url}} </br>
