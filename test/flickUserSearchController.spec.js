@@ -27,6 +27,11 @@ describe('flickUserSearchController', function(){
       )
   }));
 
+  afterEach(function() {
+   httpBackend.verifyNoOutstandingExpectation();
+   httpBackend.verifyNoOutstandingRequest();
+  });
+
   beforeEach(inject(function($controller) {
     ctrl = $controller('flickrUserSearchController');
     }));
