@@ -1,4 +1,4 @@
-flickrUserSearch.controller('flickrUserSearchController', [function(){
+flickrUserSearch.controller('flickrUserSearchController', ['$resource', function($resource){
 
   var self = this;
   self.searchResult;
